@@ -8,24 +8,24 @@
 </head>
 <body>
     @include('partials.nav')
-    <article>
-    @forelse ($cortos as $corto)
-    <div class="row">
-        <div class="col-sm-3 mb-3 mb-sm-0">
-            <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">{{$corto["titulo"]}}</h3>
-                <h6 class="card-title">{{$corto["director"]}}</h6>
-
-                <p class="card-text">{{$corto["sinapsis"]}}</p>
-                <a href="#" class="btn btn-primary">Detalles</a>
-            </div>
-         </div>
+    <article class="container">
+    <div class="row justify-content-center align-items-center">
+        @forelse ($cortos as $corto)
+            <div class="col-sm-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$corto["titulo"]}}</h3>
+                        <h6 class="card-title">{{$corto["director"]}}</h6>
+                        <p class="card-text">{{$corto["sinapsis"]}}</p>
+                        <a href="#" class="btn btn-primary">Detalles</a>
+                    </div>
+                </div>
+            </div> 
+        @empty
+            <p>No hay</p>
+        @endforelse
     </div>
-    @empty
-        <p>No hay</p>
-    @endforelse
+</article>
 
-    </article>
 </body>
 </html>
