@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link" href="{{route('principal')}}">Home</a>
-            <a class="nav-link" href="{{route('listado_cortos')}}">Lista de Cortos</a>
+            <a class="nav-link" href="{{route('cortos.index')}}">Lista de Cortos</a>
             <a class="nav-link" href="{{route('listado_libros')}}">Lista de Libros</a>
         </div>
         </div>

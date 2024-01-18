@@ -18,8 +18,8 @@ Route::get('/', function(){
     return view('home');
 })->name('principal');
 
-Route::get('cortos', [CortoController::class, 'index'])->name('listado_cortos');
-Route::get('cortos/{id}', [CortoController::class, 'show']);
+Route::get('/cortos', [CortoController::class, 'index'])->name('cortos.index');
+Route::get('/cortos/{id}', [CortoController::class, 'show'])->name('cortos.show');
 
 Route::get('libros', function(){
     $libros = array(

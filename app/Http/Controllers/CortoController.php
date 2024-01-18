@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Corto;
+
 
 class CortoController extends Controller
 {
@@ -11,48 +13,8 @@ class CortoController extends Controller
      */
     public function index()
     {
-        $cortos = [
-            [
-            'id' => 1,
-            'titulo' => 'El corto más cortante',
-            'director' => 'María Martín',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 2,
-            'titulo' => 'Sin más',
-            'director' => 'Pepa Pérez',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 3,
-            'titulo' => 'Más o menos',
-            'director' => 'Juan Jiménez',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 4,
-            'titulo' => 'Tira pa\' ya',
-            'director' => 'Sofía Sofín',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 5,
-            'titulo' => 'Miedo','director' => 'Pepe Parrilla',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ]
-            ];
-        return view('cortos', compact('cortos'));
+        $cortos = Corto::get();
+        return view('cortos.index', compact('cortos'));
     }
 
     /**
@@ -74,9 +36,10 @@ class CortoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('cortos.show', compact('id'));
+        $corto = Corto::findOrFail($id);
+        return view('cortos.show', compact('corto'));
     }
 
     /**
